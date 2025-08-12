@@ -1,0 +1,48 @@
+Classifying the Classics: Deep Learning Models to Identify and Predict Classical Music Composers
+Jack Baxter
+Shiley-Marcos School of Engineering, University of San Diego
+AAI-511: Neural Networks and Deep Learning
+Dr. Mokhtari
+August 11, 2025
+
+Dataset: midi_classic_music
+https://www.kaggle.com/datasets/blanderbuss/midi-classic-music
+
+Project Summary: 
+This project aims to classify classical music composers using deep learning models. The dataset consists of MIDI files from four composers—Bach, Beethoven, Chopin, and Mozart—sourced from the "midi_classic_music" dataset on Kaggle. 
+Convolutional Neural Network (CNN) and a Long Short-Term Memory (LSTM) models are implemented to predict the composer of a given MIDI file based on its piano roll representation.
+
+The project processes MIDI files into piano rolls, trains CNN and LSTM models, and evaluates their performance classifying each file by composers. 
+The code is written in Python and utilizes libraries such as pretty_midi, pandas, numpy, tensorflow, and scikit-learn.
+The script was constructed and run in Google CoLab coding environment. 
+
+GitHub Repository: github.com/jbaxterusd/baxter_final_511
+
+Model Architecture:
+
+Two deep learning models are implemented for composer classification:
+Convolutional Neural Network (CNN):
+Input Shape: (128, 4000, 1) (piano roll with an added  dimension)
+Layers:
+Conv2D (32 filters, 3x3 kernel, ReLU activation)
+MaxPooling2D (2x2)
+Conv2D (64 filters, 3x3 kernel, ReLU activation)
+MaxPooling2D (2x2)
+Flatten
+Dense (128 units, ReLU activation)
+Dropout (0.5)
+Dense (4 units, softmax activation for 4 composers)
+Optimizer: Adam
+Loss: Categorical Crossentropy
+
+Long Short-Term Memory (LSTM) Network:
+Input Shape: (128, 4000) (piano roll w/o channel dimension)
+Layers:
+LSTM (128 units)
+LSTM (64 units)
+Dense (64 units, ReLU activation)
+Dropout (0.5)
+Dense (4 units, softmax activation)
+Optimizer: Adam
+Loss: Categorical Crossentropy
+
